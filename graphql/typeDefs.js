@@ -21,6 +21,7 @@ export default /* GraphQL */ `
       id: Int!
       name: String!
       username: String!
+      email: String!
       profilePictureUrl: String
       comments: [Comment!]
     }
@@ -32,9 +33,19 @@ export default /* GraphQL */ `
       article: Article!
     }
 
+    type Response {
+        code: Int!
+        message: String!
+        token: String
+   }
+
     type Query {
       articles(per_page: Int!, page: Int!): [Article]
       article(id: Int!): Article
       author(id: Int!): Author
     }
-  `
+
+    type Mutation {
+      signIn(name: String, email: String!, password: String!): Response
+    }
+  `;

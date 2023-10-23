@@ -1,3 +1,4 @@
+import { GraphQLError } from "graphql";
 import { Article, Author, Comment, User } from "../database/index.js";
 
 export default {
@@ -71,6 +72,14 @@ export default {
           id: parent.articleId
         }
       })
+    }
+  },
+  Mutation: {
+    signIn: async (_, {name, email, password}) => {
+      const username = name.replace(/[^0-9a-z]/gi, '') + Math.floor(Math.random()*100000+1)
+      try { User.create({name: name, username: username, email: email, password: password}) }
+      catch(e) {console.log(e)}
+      return {code: 1, message: "user created", token: 'yet_to_be_generted'}
     }
   }
 };

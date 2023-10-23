@@ -17,6 +17,15 @@ export default {
         allowNull: false,
         unique: true
     },
+    email: {
+        type: DataTypes.STRING(256),
+        allowNull: false,
+        unique: true
+    },
+    password: {
+        type: DataTypes.STRING(256),
+        allowNull: false,
+    },
     profilePictureUrl: {
         type: DataTypes.STRING(300)
     }

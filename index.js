@@ -6,6 +6,7 @@ const app = express();
 const yoga = createYoga({ schema });
 
 app.use(yoga.graphqlEndpoint, yoga);
+app.use('/static' , express.static('public'))
 
 app.listen(4000, () => {
   console.log("Server is running at port 4000");

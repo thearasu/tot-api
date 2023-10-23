@@ -10,7 +10,8 @@ const sequelize = new Sequelize({
     database: process.env.DATABASE_NAME,
     username: process.env.DATABASE_USER,
     password:process.env.DATABASE_PASSWORD,
-    dialect: 'mysql'
+    dialect: 'mysql',
+    logging: false
 })
 
 const Article = sequelize.define('blog', blog);
